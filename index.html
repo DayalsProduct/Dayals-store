@@ -73,7 +73,7 @@
         .product:hover {
             transform: translateY(-10px); /* Move up on hover */
         }
-        .add-to-cart {
+        .buy-now {
             display: inline-block;
             padding: 8px 16px;
             background-color: #007bff;
@@ -83,7 +83,7 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
             cursor: pointer;
         }
-        .add-to-cart:hover {
+        .buy-now:hover {
             background-color: #0056b3;
             transform: scale(1.05); /* Scale up on hover */
         }
@@ -150,11 +150,11 @@
     <nav class="navbar">
         <div class="container">
             <ul>
-                <li><a href="#home"<h2 style="color: #FFFFFF;">Home</a></li>
-                <li><a href="#shop"<h2 style="color: #FFFFFF;">Shop</a></li>
-                <li><a href="#about"<h2 style="color: #FFFFFF;">About Us</a></li>
-                <li><a href="#contact"<h2 style="color: #FFFFFF;">Cart</a></li>
-                <li class="contact"><a href="#" onclick="toggleCart"<h2 style="color: #FFFFFF;">Contact (<span id="cart-count"/span>)</a></li>
+                <li><a href="#home"style="color: #FFFFFF">Home</a></li>
+                <li><a href="#shop"style="color: #FFFFFF">Shop</a></li>
+                <li><a href="#about"style="color: #FFFFFF">About Us</a></li>
+                <li><a href="#contact"style="color: #FFFFFF">Cart</a></li>
+                <li class="contact"><a href="#" onclick="toggleCart"style="color: #FFFFFF">Contact (<span id="cart-count"/span>)</a></li>
             </ul>
         </div>
     </nav>
@@ -170,13 +170,15 @@
                         <h3>Beautiful Moon Lamp Order Id (#0001)</h3>⭐⭐⭐⭐(12)
                         <p>Beautiful moon lamp because of this you can see moon wherever you want .</p>
                         <p>Price: ₹489</p>
+                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
                         <a href="#" class="add-to-cart" onclick="addToCart('Beautiful Moon Lamp Order Id (#0001)')">Add to Cart</a>
-                    </div>
+                     </div>
                     <div class="product">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT17-sESA98qCHXANu87leY-CeECO25sf7vCQ&usqp=CAU" height="250" width="250" alt="Product 2">
                         <h3>Glass Galaxy Lamp Order Id (#0002)</h3>⭐⭐⭐⭐⭐(14)
                         <p>It is a glass galaxy lamp it comes with a wooden holder.when you put it on that it glows and looks soo beautiful 😍.</p>
                         <p>Price: ₹299</p>
+                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
                         <a href="#" class="add-to-cart" onclick="addToCart('Glass Galaxy Lamp Order Id (#0002)')">Add to Cart</a>
                     </div>
                     <div class="product">
@@ -184,6 +186,7 @@
                         <h3>Print On Demand And Anime T-Shirts Order Id (#0003)</h3>⭐⭐⭐⭐(10)
                         <p>Anime tshirts we have so many and if you want print on demand we have that too .</p>
                         <p>Price: ₹319</p>
+                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
                         <a href="#" class="add-to-cart" onclick="addToCart('Print On Demand And Anime T-Shirts Order Id (#0003)')">Add to Cart</a>
                     </div>
                     <div class="product">
@@ -191,15 +194,17 @@
                         <h3>Portable Juicer Order Id (#0004)</h3>⭐⭐⭐(6)
                         <p>Its a portable juicer which you can bring anywhere its small works soo well and makes juice whenever you want .</p>
                         <p>Price: ₹679</p>
+                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
                         <a href="#" class="add-to-cart" onclick="addToCart('Portable Juicer Order Id (#0004)')">Add to Cart</a>
-                    </div>
+                     </div>
                     <div class="product">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMupy47oVfxYlKziqiUo1pp64lP0eGGM9VH0BLjdm_UZL5eQrmQBZ-TSYF&s=10" height="260" width="250" alt="Product 1">
-                        <h3>Oscar Forever Aqua Luxary Perfume Order Id (#0005)</h3>⭐⭐⭐⭐(7)
-                        <p>Oscar forever luxury perfect lastlong stays for 24hours Oscar Forever Luxary Forever.</p>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMupy47oVfxYlKziqiUo1pp64lP0eGGM9VH0BLjdm_UZL5eQrmQBZ-TSYF&s=10" height="250" width="250" alt="Product 1">
+                        <h3>Oscar Forever Aqua Luxury Perfume Order Id (#0005)</h3>⭐⭐⭐⭐(12)
+                        <p>Oscar Forever Aqua Luxury Perfume long-lasting fragrance up to 24hrs Oscar Forever Luxury Forever.</p>
                         <p>Price: ₹289</p>
-                        <a href="#" class="add-to-cart" onclick="addToCart('Oscar Forever Aqua Luxary Perfume Order Id (#0005)')">Add to Cart</a>
-                    </div>                       
+                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
+                        <a href="#" class="add-to-cart" onclick="addToCart('Beautiful Moon Lamp Order Id (#0005)')">Add to Cart</a>
+                     </div>
                     </div>
                 </div>
             </div>
@@ -254,111 +259,3 @@
 </body>
 </html>
        
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Inquiry</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-        }
-        .inquiry-form {
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-        .inquiry-form input, .inquiry-form textarea, .inquiry-form select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .loader {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #007bff;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            display: none;
-            margin: 10px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-</head>
-<body>
-    <div class="inquiry-form">
-        <h3>Product Inquiry</h3>
-        <input type="text" id="user-name" placeholder="Your Name" required>
-        <input type="email" id="user-email" placeholder="Your Email" required>
-        <textarea id="user-address" placeholder="Full Address with Pin/Number" required></textarea>
-        <select id="payment-method" required>
-            <option value="" disabled selected>Select Payment Method</option>
-            <option value="COD">Cash on Delivery (COD)</option>
-            <option value="UPI">UPI</option>
-            <option value="Credit Card">Credit Card</option>
-        </select>
-        <textarea id="user-message" placeholder="Carefully Enter Your Order Id" required></textarea>
-        <button onclick="sendEmail()">Send</button>
-        <div class="loader"></div>
-    </div>
-
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init("w7HiXVEADH4c0Y55g"); // Initialize EmailJS with your user ID
-        })();
-
-        function sendEmail() {
-            var name = document.getElementById('user-name').value.trim();
-            var email = document.getElementById('user-email').value.trim();
-            var address = document.getElementById('user-address').value.trim();
-            var paymentMethod = document.getElementById('payment-method').value.trim();
-            var message = document.getElementById('user-message').value.trim();
-
-            if (!name || !email || !address || !paymentMethod || !message) {
-                alert('Please fill out all fields.');
-                return;
-            }
-
-            var templateParams = {
-                product: 'Product 1',
-                user_name: name,
-                user_email: email,
-                user_address: address,
-                payment_method: paymentMethod,
-                user_message: message
-            };
-
-            var loader = document.querySelector('.loader');
-            
-            // Show loader
-            loader.style.display = 'block';
-
-            emailjs.send('service_tqwqqxg', 'template_y6q2h3d', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    loader.style.display = 'none';
-                    alert('Congratulations Your Order has been placed successfully!');
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Failed to send email. Please try again later.');
-                    loader.style.display = 'none';
-                });
-        }
-    </script>
-</body>
-    </html>
-                        
