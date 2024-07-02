@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Background Image</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyxfpHpjlmjU3DUMciviyyKKw-v-PH1zxi9A&usqp=CAU'); /* Replace 'your-image-link.jpg' with your actual image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- Your website content goes here -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayals Product</title>
+    <style>
+        /* CSS for animation and styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .shop-now {
+            display: block;
+            width: 100px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .shop-now:hover {
+            background-color: #45a049;
+        }
+        .products {
+            margin-top: 50px; /* Space above products */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .product {
+            padding: 20px;
+            background-color: #fff;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: 300px; /* Adjust as needed */
+        }
+        .product:hover {
+            transform: translateY(-10px); /* Move up on hover */
+        }
+        .add-to-cart {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+        .add-to-cart:hover {
+            background-color: #0056b3;
+            transform: scale(1.05); /* Scale up on hover */
+        }
+        .loader {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: none; /* Initially hidden */
+            margin: 10px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .section {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #c0392b;
+        }
+        .contact-us {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .cart-items {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1 style="font-family: 'Times New Roman', serif; color: #FFFFFF;">Welcome to <span style="color: #FFFFFF;">Dayals</span> Product</h1>
+            <p style="color: #FFFFFF;">Your premier destination for <span style="color: #e74c3c;">quality products</span>.</p>
+            <a href="#shop" class="button">Shop Now</a>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Cart</a></li>
+                <li class="contact"><a href="#" onclick="toggleCart">Contact (<span id="cart-count"/span>)</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" class="main-content">
+        <section id="shop" class="section">
+            <div class="container">
+                <h2 style="color: #e74c3c;">Shop</h2>
+                <div class="products" id="product-list">
+                    <!-- Product items -->
+                    <div class="product">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0jCGIw8Qir7r5Cmr4gTYNpNEOdcBAZqG-6zoI6utG1b_p2X9DBhI0T8Y&s=10" height="250" width="250" alt="Product 1">
+                        <h3>Beautiful Moon Lamp Order Id (#0001)</h3>⭐⭐⭐⭐(12)
+                        <p>Beautiful moon lamp because of this you can see moon wherever you want .</p>
+                        <p>Price: ₹489</p>
+                        <a href="#" class="add-to-cart" onclick="addToCart('Beautiful Moon Lamp Order Id (#0001)')">Add to Cart</a>
+                    </div>
+                    <div class="product">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT17-sESA98qCHXANu87leY-CeECO25sf7vCQ&usqp=CAU" height="250" width="250" alt="Product 2">
+                        <h3>Glass Galaxy Lamp Order Id (#0002)</h3>⭐⭐⭐⭐⭐(14)
+                        <p>It is a glass galaxy lamp it comes with a wooden holder.when you put it on that it glows and looks soo beautiful 😍.</p>
+                        <p>Price: ₹299</p>
+                        <a href="#" class="add-to-cart" onclick="addToCart('Glass Galaxy Lamp Order Id (#0002)')">Add to Cart</a>
+                    </div>
+                    <div class="product">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4lMRlZItBenfWZ0phCcDeMeVn2E9UqRma9t40CAsJzDqrS__kP3l-Ef8N&s=10" height="250" width="250" alt="Product 3">
+                        <h3>Print On Demand And Anime T-Shirts Order Id (#0003)</h3>⭐⭐⭐⭐(10)
+                        <p>Anime tshirts we have so many and if you want print on demand we have that too .</p>
+                        <p>Price: ₹319</p>
+                        <a href="#" class="add-to-cart" onclick="addToCart('Print On Demand And Anime T-Shirts Order Id (#0003)')">Add to Cart</a>
+                    </div>
+                    <div class="product">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAJADVVWVJAPtL5el1ITLuJw5MIXRstK6Bk_bJ8zrYMAmjgYRnLITqeEw&s=10" height="250" width="250" alt="Product 4">
+                        <h3>Portable Juicer Order Id (#0004)</h3>⭐⭐⭐(6)
+                        <p>Its a portable juicer which you can bring anywhere its small works soo well and makes juice whenever you want .</p>
+                        <p>Price: ₹679</p>
+                        <a href="#" class="add-to-cart" onclick="addToCart('Portable Juicer Order Id (#0004)')">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 style="color: #e74c3c;">About Us</h2>
+                <p>Welcome to Dayals Product, where <span style="color: #e74c3c;">quality</span> meets <span style="color: #e74c3c;">satisfaction</span>.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 style="color: #e74c3c;">Contact Us</h2>
+                <div class="contact-us">
+                    <p>If you have any questions or inquiries, please feel free to send us a message:</p>
+                    <a href="mailto:dayalsproducts@gmail.com?subject=Inquiry%20from%20Your%20Website&body=Hi%20Dayals%20Products,%0D%0A%0D%0APlease%20enter%20your%20message%20here:%0D%0A%0D%0A%0D%0ARegards,%0D%0A[Your Name]" class="button">Message here (dayalsproducts@gmail.com)</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 style="color: #e74c3c;">Cart</h2>
+                <div id="cart-items" class="cart-items">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+            <p>&copy; 2024 Dayals Product. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart(productName) {
+            var cartItems = document.getElementById('cart-items');
+            var newItem = document.createElement('div');
+            newItem.textContent = productName + ' added to cart';
+            cartItems.appendChild(newItem);
+        }
+
+        function toggleCart() {
+            // Add logic to show/hide cart here
+            alert('Toggle cart logic goes here.');
+        }
+    </script>
+</body>
+</html>
+       
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Inquiry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .inquiry-form {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .inquiry-form input, .inquiry-form textarea, .inquiry-form select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .loader {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: none;
+            margin: 10px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="inquiry-form">
+        <h3>Product Inquiry</h3>
+        <input type="text" id="user-name" placeholder="Your Name" required>
+        <input type="email" id="user-email" placeholder="Your Email" required>
+        <textarea id="user-address" placeholder="Full Address with Pin/Number" required></textarea>
+        <select id="payment-method" required>
+            <option value="" disabled selected>Select Payment Method</option>
+            <option value="COD">Cash on Delivery (COD)</option>
+            <option value="UPI">UPI</option>
+            <option value="Credit Card">Credit Card</option>
+        </select>
+        <textarea id="user-message" placeholder="Carefully Enter Your Order Id" required></textarea>
+        <button onclick="sendEmail()">Send</button>
+        <div class="loader"></div>
+    </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("w7HiXVEADH4c0Y55g"); // Initialize EmailJS with your user ID
+        })();
+
+        function sendEmail() {
+            var name = document.getElementById('user-name').value.trim();
+            var email = document.getElementById('user-email').value.trim();
+            var address = document.getElementById('user-address').value.trim();
+            var paymentMethod = document.getElementById('payment-method').value.trim();
+            var message = document.getElementById('user-message').value.trim();
+
+            if (!name || !email || !address || !paymentMethod || !message) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            var templateParams = {
+                product: 'Product 1',
+                user_name: name,
+                user_email: email,
+                user_address: address,
+                payment_method: paymentMethod,
+                user_message: message
+            };
+
+            var loader = document.querySelector('.loader');
+            
+            // Show loader
+            loader.style.display = 'block';
+
+            emailjs.send('service_tqwqqxg', 'template_y6q2h3d', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    loader.style.display = 'none';
+                    alert('Congratulations Your Order has been placed successfully!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Failed to send email. Please try again later.');
+                    loader.style.display = 'none';
+                });
+        }
+    </script>
+</body>
+</html>
