@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Inquiry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .inquiry-form {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .inquiry-form input, .inquiry-form textarea, .inquiry-form select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .loader {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: none;
+            margin: 10px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="inquiry-form">
+        <h3>Product Inquiry</h3>
+        <input type="text" id="user-name" placeholder="Your Name" required>
+        <input type="email" id="user-email" placeholder="Your Email" required>
+        <textarea id="user-address" placeholder="Full Address with Pin/Number" required></textarea>
+        <select id="payment-method" required>
+            <option value="" disabled selected>Select Payment Method</option>
+            <option value="COD">Cash on Delivery (COD)</option>
+            <option value="UPI">UPI</option>
+            <option value="Credit Card">Credit Card</option>
+        </select>
+        <textarea id="user-message" placeholder="Carefully Enter Your Order Id" required></textarea>
+        <button onclick="sendEmail()">Send</button>
+        <div class="loader"></div>
+    </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("w7HiXVEADH4c0Y55g"); // Initialize EmailJS with your user ID
+        })();
+
+        function sendEmail() {
+            var name = document.getElementById('user-name').value.trim();
+            var email = document.getElementById('user-email').value.trim();
+            var address = document.getElementById('user-address').value.trim();
+            var paymentMethod = document.getElementById('payment-method').value.trim();
+            var message = document.getElementById('user-message').value.trim();
+
+            if (!name || !email || !address || !paymentMethod || !message) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            var templateParams = {
+                product: 'Product 1',
+                user_name: name,
+                user_email: email,
+                user_address: address,
+                payment_method: paymentMethod,
+                user_message: message
+            };
+
+            var loader = document.querySelector('.loader');
+            
+            // Show loader
+            loader.style.display = 'block';
+
+            emailjs.send('service_tqwqqxg', 'template_y6q2h3d', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    loader.style.display = 'none';
+                    alert('Congratulations Your Order has been placed successfully!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Failed to send email. Please try again later.');
+                    loader.style.display = 'none';
+                });
+        }
+    </script>
+</body>
+</html>
