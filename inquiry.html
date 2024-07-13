@@ -94,7 +94,7 @@
         <div class="inquiry-form">
             <h2>Delivery Address Inquiry</h2>
             <form id="deliveryForm">
-                <input type="hidden" name="product_image" value="https://your-product-image-url.jpg">
+                <input type="hidden" name="product_image" value="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTIqASoHGTdY5PaOwcyhtV9YtcKeLvF6xAHe4HdKn1JXQWklF_LjMK4BsXuaZuEzNI3ptF5bjMcUFJT5yY0I2x8bO10z7VrfrL1v_JB9GdWW8ML7hW4tbqPPA&usqp=CAc">
                 
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -148,10 +148,10 @@
             };
 
             // Send email using EmailJS
-            emailjs.send('service_tqwqqxg', 'template_y6q2h3d', formData) // Replace with your actual service and template IDs
+            emailjs.send('service_tqwqqxg', 'template_5s7qolb', formData) // Replace with your actual service and template IDs
                 .then(function(response) {
                     console.log('Email sent:', response);
-                    alert('Thank you for your inquiry. We will get back to you soon!');
+                    alert('Congratulations Your Order Has been placed . We will get back to you soon!');
                 }, function(error) {
                     console.error('Email send error:', error);
                     alert('Oops! Something went wrong. Please try again later.');
