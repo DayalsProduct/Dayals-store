@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyxfpHpjlmjU3DUMciviyyKKw-v-PH1zxi9A&usqp=CAU'); /* Replace 'your-image-link.jpg' with your actual image URL */
+            background-image: url('https://as2.ftcdn.net/v2/jpg/02/60/19/53/1000_F_260195356_iY3ybISxa1JscCEvvGd2Md2LSomCEEkn.jpg'); /* Replace 'your-image-link.jpg' with your actual image URL */
             background-size: cover;
             background-position: center;
             height: 100vh; /* Adjust as needed */
@@ -24,247 +24,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dayals Product</title>
+    <title>Astronaut Projector</title>
     <style>
-        /* CSS for animation and styling */
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
-        }
-        .header {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-        .shop-now {
-            display: block;
-            width: 100px;
-            margin: 20px auto;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .shop-now:hover {
-            background-color: #45a049;
-        }
-        .products {
-            margin-top: 50px; /* Space above products */
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .product {
-            padding: 20px;
-            background-color: #fff;
-            margin: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-            width: 300px; /* Adjust as needed */
-        }
-        .product:hover {
-            transform: translateY(-10px); /* Move up on hover */
-        }
-        .buy-now {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            cursor: pointer;
-        }
-        .buy-now:hover {
-            background-color: #0056b3;
-            transform: scale(1.05); /* Scale up on hover */
-        }
-        .loader {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #007bff;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            display: none; /* Initially hidden */
-            margin: 10px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .section {
-            text-align: center;
-            padding: 50px 0;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
         }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #e74c3c;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0779e4 3px solid;
         }
-        .button:hover {
-            background-color: #c0392b;
+        header h1 {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
         }
-        .contact-us {
-            background-color: #333;
-            color: white;
+        .main-section {
+            background: #fff;
             padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .product-title {
+            text-align: center;
+            margin: 0;
+        }
+        .product-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        .buy-now {
+            display: block;
+            width: 200px;
+            height: 40px;
+            margin: 20px auto;
+            background: #0779e4;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .pictures {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .picture-item {
+            width: 45%;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .picture-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .description {
             text-align: center;
             margin-top: 20px;
+            font-size: 18px;
         }
-        .cart-items {
-            background-color: #f0f0f0;
+        .about-section {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .about-section img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .inquiry-page {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .inquiry-page.active {
+            display: block;
+        }
+        .inquiry-page h2 {
+            text-align: center;
+        }
+        .inquiry-page form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .inquiry-page form input,
+        .inquiry-page form select,
+        .inquiry-page form button {
             padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            font-size: 16px;
+        }
+        .inquiry-page form button {
+            background: #0779e4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <div class="hero-content">
-            <h1 style="font-family: 'Times New Roman', serif; color: #FFFFFF;">Welcome to <span style="color: #FFFFFF;">Dayals</span> Product</h1>
-            <p style="color: #FFFFFF;">Your premier destination for <span style="color: #e74c3c;">quality products</span>.</p>
-            <a href="#shop" class="button">Shop Now</a>
+    <header>
+        <div class="container">
+            <h1>Dayal's Product</h1>
         </div>
     </header>
-
-    <nav class="navbar">
-        <div class="container">
-            <ul>
-                <li><a href="#home"style="color: #FFFFFF">Home</a></li>
-                <li><a href="#shop"style="color: #FFFFFF">Shop</a></li>
-                <li><a href="#about"style="color: #FFFFFF">About Us</a></li>
-                <li><a href="#contact"style="color: #FFFFFF">Cart</a></li>
-                <li class="contact"><a href="#" onclick="toggleCart"style="color: #FFFFFF">Contact (<span id="cart-count"/span>)</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main id="main-content" class="main-content">
-        <section id="shop" class="section">
-            <div class="container">
-                <h2 style="color: #e74c3c;">Shop</h2>
-                <div class="products" id="product-list">
-                    <!-- Product items -->
-                    <div class="product">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0jCGIw8Qir7r5Cmr4gTYNpNEOdcBAZqG-6zoI6utG1b_p2X9DBhI0T8Y&s=10" height="250" width="250" alt="Product 1">
-                        <h3>Beautiful Moon Lamp Order Id (#0001)</h3>⭐⭐⭐⭐(12)
-                        <p>Beautiful moon lamp because of this you can see moon wherever you want .</p>
-                        <p>Price: ₹489</p>
-                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
-                        <a href="#" class="add-to-cart" onclick="addToCart('Beautiful Moon Lamp Order Id (#0001)')">Add to Cart</a>
-                     </div>
-                    <div class="product">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT17-sESA98qCHXANu87leY-CeECO25sf7vCQ&usqp=CAU" height="250" width="250" alt="Product 2">
-                        <h3>Glass Galaxy Lamp Order Id (#0002)</h3>⭐⭐⭐⭐⭐(14)
-                        <p>It is a glass galaxy lamp it comes with a wooden holder.when you put it on that it glows and looks soo beautiful 😍.</p>
-                        <p>Price: ₹299</p>
-                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
-                        <a href="#" class="add-to-cart" onclick="addToCart('Glass Galaxy Lamp Order Id (#0002)')">Add to Cart</a>
-                    </div>
-                    <div class="product">
-                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4lMRlZItBenfWZ0phCcDeMeVn2E9UqRma9t40CAsJzDqrS__kP3l-Ef8N&s=10" height="250" width="250" alt="Product 3">
-                        <h3>Print On Demand And Anime T-Shirts Order Id (#0003)</h3>⭐⭐⭐⭐(10)
-                        <p>Anime tshirts we have so many and if you want print on demand we have that too .</p>
-                        <p>Price: ₹319</p>
-                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
-                        <a href="#" class="add-to-cart" onclick="addToCart('Print On Demand And Anime T-Shirts Order Id (#0003)')">Add to Cart</a>
-                    </div>
-                    <div class="product">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAJADVVWVJAPtL5el1ITLuJw5MIXRstK6Bk_bJ8zrYMAmjgYRnLITqeEw&s=10" height="250" width="250" alt="Product 4">
-                        <h3>Portable Juicer Order Id (#0004)</h3>⭐⭐⭐(6)
-                        <p>Its a portable juicer which you can bring anywhere its small works soo well and makes juice whenever you want .</p>
-                        <p>Price: ₹679</p>
-                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
-                        <a href="#" class="add-to-cart" onclick="addToCart('Portable Juicer Order Id (#0004)')">Add to Cart</a>
-                     </div>
-                    <div class="product">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMupy47oVfxYlKziqiUo1pp64lP0eGGM9VH0BLjdm_UZL5eQrmQBZ-TSYF&s=10" height="250" width="250" alt="Product 1">
-                        <h3>Oscar Forever Aqua Luxury Perfume Order Id (#0005)</h3>⭐⭐⭐⭐(12)
-                        <p>Oscar Forever Aqua Luxury Perfume long-lasting fragrance up to 24hrs Oscar Forever Luxury Forever.</p>
-                        <p>Price: ₹289</p>
-                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
-                        <a href="#" class="add-to-cart" onclick="addToCart('Beautiful Moon Lamp Order Id (#0005)')">Add to Cart</a>
-                     </div>
-                    <div class="product">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh0kdw0C1MO-AONLiaEDAetPZThdqnzfRhHioI6BSCpoQCj9vnFEGX_Gd-&s=10" height="250" width="250" alt="Product 1">
-                        <h3>3 in 1 Ac Cooler❄️Order Id (#0006)</h3>⭐⭐⭐⭐(5)
-                        <p>3 in 1 Ac Cooler, 3 mist modes, Adjustable Stand,And keep you moisturize,Best for hot summers.</p>
-                        <p>Price: ₹1129</p>
-                        <a href="inquiry.html?product=Product%201" class="buy-now">Buy Now</a>
-                        <a href="#" class="add-to-cart" onclick="addToCart('3 in 1 Ac Cooler❄️ Order Id (#0006)')">Add to Cart</a>
-                     </div>                        
-                     </div>
-                    </div>
+    <div class="container">
+        <div class="main-section">
+            <h2 class="product-title">Astronaut Projector</h2>
+            <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTAyaA9T7-2WHO9q3wHRvBqt149WHYnxe126fQzs0NKO3WP-uly9wHIh9iaTtWsTIpZsyq4AELYxFAYftGI4t42_MZJsxVYGDccJ1dj7o3M&usqp=CAc" alt="Astronaut Projector Image" class="product-image">
+             <a href="inquiry.html" class="buy-now">Buy Now</a>
+            <p class="description">
+                Explore the wonders of the universe with our Astronaut Projector. This innovative device projects stunning images of galaxies, stars, and planets right onto your ceiling, transforming any room into a personal planetarium. At Dayal's Product, we are committed to providing you with the best and most affordable products. Our Astronaut Projector is a testament to our mission of delivering high-quality and cost-effective solutions for all your needs.
+            </p>
+            <div class="pictures">
+                <div class="picture-item">
+                    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSt-llh-GOeu6Mieg77kI9IDDJXL9hRbznzg0xIyWOujOv_glp_G4o_lAKkm0vRPl_OnuxW_pTT2iwNcOa5py9Tp1Sh3dQAsPHqyKESmZkCzmLgG0l2ZDEKRQ&usqp=CAc" alt="Astronaut Projector Image 1">
+                    <p>Astronaut Projector in action</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="about" class="section">
-            <div class="container">
-                <h2 style="color: #e74c3c;">About Us</h2>
-                <p>Welcome to Dayals Product, where <span style="color: #e74c3c;">quality</span> meets <span style="color: #e74c3c;">satisfaction</span>.</p>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 style="color: #e74c3c;">Contact Us</h2>
-                <div class="contact-us">
-                    <p>If you have any questions or inquiries, please feel free to send us a message:</p>
-                    <a href="mailto:dayalsproducts@gmail.com?subject=Inquiry%20from%20Your%20Website&body=Hi%20Dayals%20Products,%0D%0A%0D%0APlease%20enter%20your%20message%20here:%0D%0A%0D%0A%0D%0ARegards,%0D%0A[Your Name]" class="button">Message here (dayalsproducts@gmail.com)</a>
+                <div class="picture-item">
+                    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSEM726UOQgKF02pYBCZg7BMwy97Z3B6ZziQl9TJrgJmaSmQAqKaCJ-TrgeB1HlkkIUtWeDj9iEOv0K4l0aKPYFXbdmdaslAFMPnfLhdaXjy6TAtfHazg86&usqp=CAc" alt="Astronaut Projector Image 2">
+                    <p>Beautiful starry night projection</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2 style="color: #e74c3c;">Cart</h2>
-                <div id="cart-items" class="cart-items">
-                    <!-- Cart items will be dynamically inserted here -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-            <p>&copy; 2024 Dayals Product. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        function addToCart(productName) {
-            var cartItems = document.getElementById('cart-items');
-            var newItem = document.createElement('div');
-            newItem.textContent = productName + ' added to cart';
-            cartItems.appendChild(newItem);
-        }
-
-        function toggleCart() {
-            // Add logic to show/hide cart here
-            alert('Toggle cart logic goes here.');
-        }
-    </script>
-</body>
-</html>
-       
+                <div class="picture-item">
+                    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTEB0wucUBsvwAJGo_rrMF4JBUANbc2NZbSUmq8MnbNv-1mtBnF82PXIyVk4A2e1vKTRhs31TgsvzSDNU1_JRDy0VAeqUALQcqOWBdX7M4&usqp=CAc" alt="Astronaut Projector Image 3">
+                    <p>Enhance your room with cosmic visuals</p>
+                    
