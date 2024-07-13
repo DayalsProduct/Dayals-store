@@ -3,105 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Inquiry</title>
+    <title>Custom Background Image</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
-        }
-        .inquiry-form {
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-        .inquiry-form input, .inquiry-form textarea, .inquiry-form select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .loader {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #007bff;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            display: none;
-            margin: 10px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            background-image: url('https://as2.ftcdn.net/v2/jpg/02/60/19/53/1000_F_260195356_iY3ybISxa1JscCEvvGd2Md2LSomCEEkn.jpg'); /* Replace 'your-image-link.jpg' with your actual image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Adjust as needed */
         }
     </style>
 </head>
 <body>
-    <div class="inquiry-form">
-        <h3>Product Inquiry</h3>
-        <input type="text" id="user-name" placeholder="Your Name" required>
-        <input type="email" id="user-email" placeholder="Your Email" required>
-        <textarea id="user-address" placeholder="Full Address with Pin/Number" required></textarea>
-        <select id="payment-method" required>
-            <option value="" disabled selected>Select Payment Method</option>
-            <option value="COD">Cash on Delivery (COD)</option>
-            <option value="UPI">UPI</option>
-            <option value="Credit Card">Credit Card</option>
-        </select>
-        <textarea id="user-message" placeholder="Carefully Enter Your Order Id" required></textarea>
-        <button onclick="sendEmail()">Send</button>
-        <div class="loader"></div>
+    <!-- Your website content goes here -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Address Inquiry</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding-top: 20px;
+        }
+        .inquiry-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #0779e4;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            gap: 10px;
+        }
+        label {
+            font-size: 18px;
+        }
+        input[type="text"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #0779e4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #055b9b;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .loading img {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inquiry-form">
+            <h2>Delivery Address Inquiry</h2>
+            <form id="deliveryForm">
+                <input type="hidden" name="product_image" value="https://your-product-image-url.jpg">
+                
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="pin">PIN:</label>
+                <input type="text" id="pin" name="pin" required>
+
+                <label for="number">Contact Number:</label>
+                <input type="tel" id="number" name="number" required>
+
+                <label for="payment">Payment Method:</label>
+                <select id="payment" name="payment" required>
+                    <option value="cash_on_delivery">Cash on Delivery</option>
+                    <option value="upi">UPI</option>
+                    <option value="bank_account">Bank Account</option>
+                </select>
+
+                <button type="submit" id="submitBtn">Order Now</button>
+                <div class="loading" id="loading">
+                    <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" alt="Loading...">
+                </div>
+            </form>
+        </div>
     </div>
 
+    <!-- Include EmailJS library -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        (function() {
-            emailjs.init("w7HiXVEADH4c0Y55g"); // Initialize EmailJS with your user ID
-        })();
+        // Initialize EmailJS with your user ID
+        emailjs.init('w7HiXVEADH4c0Y55g'); // Replace with your actual EmailJS user ID
 
-        function sendEmail() {
-            var name = document.getElementById('user-name').value.trim();
-            var email = document.getElementById('user-email').value.trim();
-            var address = document.getElementById('user-address').value.trim();
-            var paymentMethod = document.getElementById('payment-method').value.trim();
-            var message = document.getElementById('user-message').value.trim();
+        // Add an event listener to the form submission
+        document.getElementById('deliveryForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
 
-            if (!name || !email || !address || !paymentMethod || !message) {
-                alert('Please fill out all fields.');
-                return;
-            }
+            // Show loading animation
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
 
-            var templateParams = {
-                product: 'Product 1',
-                user_name: name,
-                user_email: email,
-                user_address: address,
-                payment_method: paymentMethod,
-                user_message: message
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                address: document.getElementById('address').value,
+                pin: document.getElementById('pin').value,
+                number: document.getElementById('number').value,
+                payment: document.getElementById('payment').value,
+                product_image: document.querySelector('input[name="product_image"]').value
             };
 
-            var loader = document.querySelector('.loader');
-            
-            // Show loader
-            loader.style.display = 'block';
-
-            emailjs.send('service_tqwqqxg', 'template_y6q2h3d', templateParams)
+            // Send email using EmailJS
+            emailjs.send('service_tqwqqxg', 'template_y6q2h3d', formData) // Replace with your actual service and template IDs
                 .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    loader.style.display = 'none';
-                    alert('Congratulations Your Order has been placed successfully!');
+                    console.log('Email sent:', response);
+                    alert('Thank you for your inquiry. We will get back to you soon!');
                 }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Failed to send email. Please try again later.');
-                    loader.style.display = 'none';
+                    console.error('Email send error:', error);
+                    alert('Oops! Something went wrong. Please try again later.');
+                })
+                .finally(function() {
+                    // Hide loading animation and reset button
+                    document.getElementById('submitBtn').style.display = 'block';
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('deliveryForm').reset(); // Optional: Reset form after submission
                 });
-        }
+        });
     </script>
 </body>
 </html>
