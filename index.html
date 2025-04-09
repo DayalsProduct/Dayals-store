@@ -3,196 +3,1377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Background Image</title>
+    <title>Dayal's Store - Portable Heat Sealer Machine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            background-image: url('https://as2.ftcdn.net/v2/jpg/02/60/19/53/1000_F_260195356_iY3ybISxa1JscCEvvGd2Md2LSomCEEkn.jpg'); /* Replace 'your-image-link.jpg' with your actual image URL */
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #34495e);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 100vh; /* Adjust as needed */
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Product Section */
+        .product-section {
+            padding: 80px 0;
+            background: #f5f7fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .product-images {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 20px;
+        }
+        
+        .thumbnail-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background: white;
+            padding: 5px;
+        }
+        
+        .thumbnail:hover {
+            border-color: var(--secondary);
+        }
+        
+        .product-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .product-title {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .product-price {
+            font-size: 28px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .old-price {
+            font-size: 20px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+        
+        .discount-badge {
+            background: var(--success);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .product-description {
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+        
+        .add-to-cart {
+            background: var(--secondary);
+            padding: 15px 40px;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+        
+        .add-to-cart:hover {
+            background: #c0392b;
+        }
+        
+        .buy-now {
+            background: var(--primary);
+            padding: 15px 40px;
+            font-size: 18px;
+        }
+        
+        .buy-now:hover {
+            background: #1a252f;
+        }
+        
+        .product-features {
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon-sm {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: var(--secondary);
+        }
+        
+        /* Specifications */
+        .specifications {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        
+        .specs-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .specs-table th, .specs-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .specs-table th {
+            width: 30%;
+            color: var(--primary);
+        }
+        
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .cart-modal.open {
+            right: 0;
+        }
+        
+        .cart-header {
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .cart-items {
+            padding: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 5px;
+            margin-right: 15px;
+            background: #f9f9f9;
+            padding: 5px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .cart-item-quantity button {
+            width: 25px;
+            height: 25px;
+            background: var(--light);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cart-item-quantity input {
+            width: 40px;
+            text-align: center;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .remove-item {
+            color: var(--accent);
+            cursor: pointer;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        
+        .cart-total {
+            padding: 20px;
+            background: var(--light);
+            text-align: right;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--success);
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .checkout-btn:hover {
+            background: #27ae60;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .product-container {
+                flex-direction: column;
+            }
+            
+            .cart-modal {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .action-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .add-to-cart, .buy-now {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+         .thumbnail-container {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Your website content goes here -->
-</body>
-</html>
-<!DOCTYPE html>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-fire"></i>
+                <span>Dayal's Store</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#product">Product</a></li>
+                    <li><a href="#specs">Specs</a></li>
+                    <li>
+                        <div class="cart-icon" id="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Portable Heat Sealer Machine</h1>
+            <p>Professional sealing for bags, pouches and more with our rechargeable magnetic heat sealer</p>
+            <a href="#product" class="btn">Order Now</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our Heat Sealer</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Heating</h3>
+                    <p>Heats up in seconds for immediate sealing action</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3>Rechargeable</h3>
+                    <p>Built-in lithium battery with USB charging</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magnet"></i>
+                    </div>
+                    <h3>Magnetic Seal</h3>
+                    <p>Strong magnetic closure ensures perfect seals</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-weight-hanging"></i>
+                    </div>
+                    <h3>Lightweight</h3>
+                    <p>Compact and portable design for easy handling</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section" id="product">
+        <div class="container">
+            <div class="section-title">
+                <h2>Product Details</h2>
+            </div>
+            <div class="product-container">
+                <div class="product-images">
+                    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR802uC9a5GAHW0TGj-3EMKbu9_X-GCQidKcav-5wKQYzpJRSjNZJYouU0_LgZ0n7II5i7WxvXOF3DizExaS2qrdVyKQ81GQvjz-6YcREkSW1oHuFPcUWQDVw" alt="Portable Heat Sealer" class="main-image" id="main-image">
+                    <div class="thumbnail-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR802uC9a5GAHW0TGj-3EMKbu9_X-GCQidKcav-5wKQYzpJRSjNZJYouU0_LgZ0n7II5i7WxvXOF3DizExaS2qrdVyKQ81GQvjz-6YcREkSW1oHuFPcUWQDVw" alt="Thumbnail 1" class="thumbnail">
+                        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTiL9e-EDa38i_H2o5IJQq1cQC5pxNbRrNzC-9oYj527_x9wLb5inSdyITBdLQEi1M706Gwv_hWQLBfOFqhfKX-fojSoXDasYaI-wrVrp6B5GRKELzvyKnG" alt="Thumbnail 2" class="thumbnail">
+                        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS5rvqKhb17fOKkjsT7mgwipWdKBb-OnJbLhJ_3NJLjSSCfkHW7CaZtPPsfZLVRnti__x_fOMLFTKvReRzJPmrMiVCcpyO0rF4Y61Ano_ZjDdG6o1aulkMO4g" alt="Thumbnail 3" class="thumbnail">
+                        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR802uC9a5GAHW0TGj-3EMKbu9_X-GCQidKcav-5wKQYzpJRSjNZJYouU0_LgZ0n7II5i7WxvXOF3DizExaS2qrdVyKQ81GQvjz-6YcREkSW1oHuFPcUWQDVw" alt="Thumbnail 4" class="thumbnail">
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h1 class="product-title">Portable Heat Sealer Machine</h1>
+                    <div class="product-price">
+                        ₹299 <span class="old-price">₹699</span> <span class="discount-badge">55% OFF</span>
+                    </div>
+                    <p class="product-description">
+                        Our portable heat sealer is perfect for sealing bags of snacks, coffee, tea, and more. The rechargeable design makes it convenient for home or travel use, while the magnetic closure ensures a tight seal every time.
+                    </p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn">-</button>
+                        <input type="number" value="1" min="1" class="quantity-input">
+                        <button class="quantity-btn">+</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn buy-now">Buy Now</button>
+                    </div>
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <div class="feature-icon-sm">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>Seals most plastic bags up to 0.2mm thick</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon-sm">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>Built-in safety features prevent overheating</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon-sm">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>Includes USB charging cable</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon-sm">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>1-year manufacturer warranty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="specifications" id="specs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Specifications</h2>
+            </div>
+            <table class="specs-table">
+                <tr>
+                    <th>Product Name</th>
+                    <td>Portable Magnetic Heat Sealer</td>
+                </tr>
+                <tr>
+                    <th>Material</th>
+                    <td>ABS Plastic + Stainless Steel</td>
+                </tr>
+                <tr>
+                    <th>Power Source</th>
+                    <td>Built-in 1000mAh Lithium Battery</td>
+                </tr>
+                <tr>
+                    <th>Charging Time</th>
+                    <td>2 Hours</td>
+                </tr>
+                <tr>
+                    <th>Sealing Thickness</th>
+                    <td>Up to 0.2mm</td>
+                </tr>
+                <tr>
+                    <th>Dimensions</th>
+                    <td>6.3 x 1.6 x 0.8 inches</td>
+                </tr>
+                <tr>
+                    <th>Weight</th>
+                    <td>3.2 ounces</td>
+                </tr>
+                <tr>
+                    <th>Warranty</th>
+                    <td>1 Year</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astronaut Projector</title>
+    <title>Dayal's Store - Portable Heat Sealer Machine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
+        /* [Previous CSS remains exactly the same] */
+        
+        /* New Review Section Styles */
+        .reviews {
+            padding: 80px 0;
+            background: #f5f7fa;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+        
+        .review-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #0779e4 3px solid;
-        }
-        header h1 {
-            text-align: center;
-            text-transform: uppercase;
-            margin: 0;
-        }
-        .main-section {
-            background: #fff;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .product-title {
-            text-align: center;
-            margin: 0;
-        }
-        .product-image {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-        }
-        .price {
-            text-align: center;
-            font-size: 24px;
-            color: #0779e4;
-            margin: 20px 0;
-        }
-        .buy-now {
-            display: block;
-            width: 200px;
-            height: 40px;
-            margin: 20px auto;
-            background: #0779e4;
-            color: #fff;
-            text-align: center;
-            line-height: 40px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .pictures {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .picture-item {
-            width: 45%;
-            margin: 10px 0;
-            text-align: center;
-        }
-        .picture-item img {
-            width: 100%;
+        
+        .review-card {
+            background: white;
+            padding: 25px;
             border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        .description {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 18px;
-        }
-        .about-section {
-            background: #fff;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .about-section img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .inquiry-page {
-            display: none;
-            background: #fff;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .inquiry-page.active {
-            display: block;
-        }
-        .inquiry-page h2 {
-            text-align: center;
-        }
-        .inquiry-page form {
+        
+        .review-header {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            justify-content: space-between;
+            margin-bottom: 15px;
         }
-        .inquiry-page form input,
-        .inquiry-page form select,
-        .inquiry-page form button {
-            padding: 10px;
-            font-size: 16px;
+        
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--primary);
         }
-        .inquiry-page form button {
-            background: #0779e4;
-            color: #fff;
+        
+        .review-date {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .review-rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .show-more-btn {
+            display: block;
+            margin: 30px auto 0;
+            background: var(--primary);
+            color: white;
             border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
             cursor: pointer;
-            text-transform: uppercase;
+        }
+        
+        .hidden-reviews {
+            display: none;
+        }
+        
+        /* Warranty Section */
+        .warranty {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .warranty-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .warranty-icon {
+            font-size: 50px;
+            color: var(--success);
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- [Previous HTML remains the same until after specifications section] -->
+
+    <!-- Warranty Section -->
+    <section class="warranty">
         <div class="container">
-            <h1>Dayal's Product</h1>
-        </div>
-    </header>
-    <div class="container">
-        <div class="main-section">
-            <h2 class="product-title">Astronaut Projector</h2>
-            <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTAyaA9T7-2WHO9q3wHRvBqt149WHYnxe126fQzs0NKO3WP-uly9wHIh9iaTtWsTIpZsyq4AELYxFAYftGI4t42_MZJsxVYGDccJ1dj7o3M&usqp=CAc" alt="Astronaut Projector Image" class="product-image">
-            <p class="price">Price:₹849</p>
-            <a href="inquiry.html" class="buy-now">Buy Now</a>
-            <p class="description">
-                Explore the wonders of the universe with our Astronaut Projector. This innovative device projects stunning images of galaxies, stars, and planets right onto your ceiling, transforming any room into a personal planetarium. At Dayal's Product, we are committed to providing you with the best and most affordable products. Our Astronaut Projector is a testament to our mission of delivering high-quality and cost-effective solutions for all your needs.
-            </p>
-            <div class="pictures">
-                <div class="picture-item">
-                    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSt-llh-GOeu6Mieg77kI9IDDJXL9hRbznzg0xIyWOujOv_glp_G4o_lAKkm0vRPl_OnuxW_pTT2iwNcOa5py9Tp1Sh3dQAsPHqyKESmZkCzmLgG0l2ZDEKRQ&usqp=CAc" alt="Astronaut Projector Image 1">
-                    <p>Astronaut Projector in action</p>
+            <div class="warranty-content">
+                <div class="warranty-icon">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
-                <div class="picture-item">
-                    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSEM726UOQgKF02pYBCZg7BMwy97Z3B6ZziQl9TJrgJmaSmQAqKaCJ-TrgeB1HlkkIUtWeDj9iEOv0K4l0aKPYFXbdmdaslAFMPnfLhdaXjy6TAtfHazg86&usqp=CAc" alt="Astronaut Projector Image 2">
-                    <p>Beautiful starry night projection</p>
-                </div>
-                <div class="picture-item">
-                    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTEB0wucUBsvwAJGo_rrMF4JBUANbc2NZbSUmq8MnbNv-1mtBnF82PXIyVk4A2e1vKTRhs31TgsvzSDNU1_JRDy0VAeqUALQcqOWBdX7M4&usqp=CAc" alt="Astronaut Projector Image 3">
-                    <p>Enhance your room with cosmic visuals</p>
-                </div>
-                <div class="picture-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTajDNEhTF4cfhZ_S5WegrsxnwpiQCVLadTgpye-ETj1g&s" alt="Astronaut Projector Image 4">
-                    <p>Perfect for stargazing enthusiasts</p>
-                </div>
+                <h2>1-Year Manufacturer Warranty</h2>
+                <p>We stand behind the quality of our products. Your portable heat sealer comes with a full 1-year warranty against manufacturing defects. If you experience any issues with your device, we'll repair or replace it at no cost to you.</p>
+                <p>Simply contact our customer support with your proof of purchase, and we'll take care of the rest.</p>
             </div>
         </div>
-        <div class="about-section">
-            <h2>About Our Product</h2>
-            <img src="https://thegalaxybot.com/cdn/shop/files/gif3.gif?v=1666636016&width=1500" alt="Astronaut Projector">
-            <p>
-                At Dayal's Product, we strive to bring you innovative and affordable gadgets that enhance your lifestyle. Our Astronaut Projector is designed to bring the beauty of the cosmos into your home. Whether you're looking to unwind under a starry sky or create a unique ambiance for gatherings, this projector is the perfect choice. With high-quality projections and easy setup, it’s an excellent addition to any room.
-            </p>
-            <img src='https://cdn.shopify.com/s/files/1/0818/3683/5109/files/de4c29837fa29b3ad314157be9ae313d2af40825ca58d9e0237e7e9c275955e8_480x480.gif?v=1694366213' alt="Astronaut Projector">
-            <p>
-                At Dayal's Product, we pride ourselves on delivering exceptional quality in every project we undertake. Our Astronaut Projector is no exception. We use only the finest materials and the latest technology to ensure that our products not only meet but exceed your expectations. Each item undergoes rigorous testing to guarantee its performance, durability, and safety. Our dedication to excellence is reflected in the positive feedback from our satisfied customers. When you choose Dayal's Product, you're choosing innovation, reliability, and unparalleled quality.
-            </p>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Reviews</h2>
+            </div>
+            <div class="review-container">
+                <!-- Visible Reviews -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Rahul Sharma</span>
+                        <span class="review-date">15 May 2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Amazing product! Seals bags perfectly every time. The battery lasts much longer than I expected. Highly recommended for anyone who needs to keep their food fresh.</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Priya Patel</span>
+                        <span class="review-date">2 June 2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>Works great for most bags, though sometimes it takes a couple tries to get a perfect seal on thicker materials. Very portable and convenient.</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Vikram Singh</span>
+                        <span class="review-date">22 April 2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Best kitchen gadget I've bought this year! Saves me so much money on food storage. The magnetic closure is super strong - no more stale snacks!</p>
+                </div>
+                
+                <!-- Hidden Reviews -->
+                <div class="review-card hidden-reviews">
+                    <div class="review-header">
+                        <span class="reviewer-name">Ananya Gupta</span>
+                        <span class="review-date">10 July 2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Absolutely love this sealer! It's become an essential tool in my kitchen. The compact size makes it easy to store, and it heats up in seconds.</p>
+                </div>
+                
+                <div class="review-card hidden-reviews">
+                    <div class="review-header">
+                        <span class="reviewer-name">Arjun Mehta</span>
+                        <span class="review-date">5 March 2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p>Good product overall, but the battery could last longer. Works well for light use, but if you have many bags to seal, you might need to recharge frequently.</p>
+                </div>
+                
+                <div class="review-card hidden-reviews">
+                    <div class="review-header">
+                        <span class="reviewer-name">Neha Kapoor</span>
+                        <span class="review-date">18 August 2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p>Stopped working after 2 months. Customer service was helpful though and sent a replacement quickly under warranty.</p>
+                </div>
+                
+                <div class="review-card hidden-reviews">
+                    <div class="review-header">
+                        <span class="reviewer-name">Sanjay Verma</span>
+                        <span class="review-date">30 June 2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Perfect for my small business! I use it to seal spice packets and it works like a charm. Much better than the expensive industrial sealers I've tried.</p>
+                </div>
+                
+                <div class="review-card hidden-reviews">
+                    <div class="review-header">
+                        <span class="reviewer-name">Deepika Nair</span>
+                        <span class="review-date">12 May 2023</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>Great value for money. The only reason I'm not giving 5 stars is that it doesn't work well with very thick plastic bags, but for regular use it's fantastic.</p>
+                </div>
+            </div>
+            <button class="show-more-btn" id="show-more-reviews">Show More Reviews</button>
         </div>
-        <div id="inquiry" class="inquiry-page">
-            <h2>Delivery Address Inquiry</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text
+    </section>
+
+    <!-- [Rest of HTML remains the same] -->
+
+    <script>
+        // [Previous JavaScript remains the same]
+        
+        // Show more reviews functionality
+        const showMoreBtn = document.getElementById('show-more-reviews');
+        const hiddenReviews = document.querySelectorAll('.hidden-reviews');
+        
+        showMoreBtn.addEventListener('click', function() {
+            hiddenReviews.forEach(review => {
+                review.style.display = 'block';
+            });
+            showMoreBtn.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <div class="empty-cart-message" style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-shopping-cart" style="font-size: 50px; color: #ddd; margin-bottom: 20px;"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-total">
+            Total: ₹0.00
+        </div>
+        <button class="checkout-btn" onclick="window.open('https://bit.ly/4jmIF0a', '_blank')">Confirm on WhatsApp</button>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Dayal's Store</h3>
+                    <p>Providing high-quality sealing solutions for home and business use since 2023.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#product">Product</a></li>
+                        <li><a href="#specs">Specifications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Jammu,Purkhoo camp domana</li>
+                        <li><i class="fas fa-phone"></i> +91 8082175190</li>
+                        <li><i class="fas fa-envelope"></i> dayalsproducts@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Dayal's Store. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cart functionality
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.querySelector('.cart-modal');
+        const overlay = document.querySelector('.overlay');
+        const addToCartBtn = document.querySelector('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const cartTotal = document.querySelector('.cart-total');
+        const emptyCartMessage = document.querySelector('.empty-cart-message');
+        
+        let cart = [];
+        let total = 0;
+        
+        // Toggle cart modal
+        cartIcon.addEventListener('click', () => {
+            cartModal.classList.add('open');
+            overlay.classList.add('active');
+        });
+        
+        // Close cart modal
+        document.querySelector('.close-cart').addEventListener('click', () => {
+            cartModal.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+        
+        // Close modal when clicking overlay
+        overlay.addEventListener('click', () => {
+            cartModal.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+        
+        // Product image gallery functionality
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const mainImage = document.querySelector('.main-image');
+        
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                mainImage.src = thumbnail.src;
+            });
+        });
+        
+        // Quantity selector
+        const quantityInput = document.querySelector('.quantity-input');
+        document.querySelector('.quantity-btn:first-child').addEventListener('click', () => {
+            if(quantityInput.value > 1) quantityInput.value--;
+        });
+        document.querySelector('.quantity-btn:last-child').addEventListener('click', () => {
+            quantityInput.value++;
+        });
+        
+        // Add to cart functionality
+        addToCartBtn.addEventListener('click', () => {
+            const quantity = parseInt(quantityInput.value);
+            const price = 299;
+            const product = {
+                name: "Portable Heat Sealer Machine",
+                price: price,
+                quantity: quantity,
+                image: mainImage.src
+            };
+            
+            // Check if product already in cart
+            const existingItemIndex = cart.findIndex(item => item.name === product.name);
+            
+            if(existingItemIndex >= 0) {
+                cart[existingItemIndex].quantity += quantity;
+            } else {
+                cart.push(product);
+            }
+            
+            // Update cart
+            updateCart();
+            
+            // Show cart
+            cartModal.classList.add('open');
+            overlay.classList.add('active');
+        });
+        
+        // Update cart display
+        function updateCart() {
+            // Update cart count
+            let totalItems = 0;
+            cart.forEach(item => {
+                totalItems += item.quantity;
+            });
+            cartCount.textContent = totalItems;
+            
+            // Update cart items
+            if(cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                cartItemsContainer.innerHTML = '';
+            } else {
+                emptyCartMessage.style.display = 'none';
+                
+                let itemsHTML = '';
+                total = 0;
+                
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    itemsHTML += `
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                            <div class="cart-item-details">
+                                <div class="cart-item-title">${item.name}</div>
+                                <div class="cart-item-price">₹${item.price.toFixed(2)}</div>
+                                <div class="cart-item-quantity">
+                                    <button onclick="updateQuantity(${index}, -1)">-</button>
+                                    <input type="number" value="${item.quantity}" min="1" onchange="updateQuantityInput(${index}, this.value)">
+                                    <button onclick="updateQuantity(${index}, 1)">+</button>
+                                </div>
+                                <div class="remove-item" onclick="removeItem(${index})">Remove</div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItemsContainer.innerHTML = itemsHTML;
+                cartTotal.textContent = `Total: ₹${total.toFixed(2)}`;
+            }
+        }
+        
+        // Update quantity with buttons
+        function updateQuantity(index, change) {
+            const newQuantity = cart[index].quantity + change;
+            
+            if(newQuantity < 1) {
+                removeItem(index);
+                return;
+            }
+            
+            cart[index].quantity = newQuantity;
+            updateCart();
+        }
+        
+        // Update quantity with input
+        function updateQuantityInput(index, value) {
+            const newQuantity = parseInt(value);
+            
+            if(isNaN(newQuantity) || newQuantity < 1) {
+                cart[index].quantity = 1;
+            } else {
+                cart[index].quantity = newQuantity;
+            }
+            
+            updateCart();
+        }
+        
+        // Remove item from cart
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+        
+        // Buy now button
+        document.querySelector('.buy-now').addEventListener('click', () => {
+            const quantity = parseInt(quantityInput.value);
+            const price = 299;
+            const product = {
+                name: "Portable Heat Sealer Machine",
+                price: price,
+                quantity: quantity,
+                image: mainImage.src
+            };
+            
+            cart = [product];
+            updateCart();
+            
+            // Show cart
+            cartModal.classList.add('open');
+            overlay.classList.add('active');
+        });
+    </script>
+</body>
+</html>
